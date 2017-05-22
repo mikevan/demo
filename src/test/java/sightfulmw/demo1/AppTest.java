@@ -36,10 +36,13 @@ public class AppTest
     	Loops L = new Loops();
         int[] z = new int[]{1, 2, 3, 4, 5};
         
-        L.forLoop(z);
-        L.whileLoop(5);
-        L.doWhile(5);
-        
-        assertTrue( true );
+        try {        	        
+	        L.forLoop(z);
+	        L.whileLoop(5);
+	        L.doWhile(5);
+	        assertTrue( true );
+        } catch (Exception e) {
+        	assertFalse( false );
+        }
     }
 }
