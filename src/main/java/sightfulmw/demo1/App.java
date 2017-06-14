@@ -19,7 +19,7 @@ public class App
     	ba.depositFunds(20);
     	ba.withdrawFunds(101);
 
-    	System.out.println("Test confirmed!");
+    	//System.out.println("Test confirmed!");
 
     }
 }
