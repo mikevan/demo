@@ -193,36 +193,51 @@
                        </dependency>
                    </dependencies>
                </plugin>
-		      <plugin>
-		        <groupId>io.fabric8</groupId>
-		        <artifactId>docker-maven-plugin</artifactId>
-		        <configuration>
-		          <images>
-		            <image>
-		              <name>sightfulmw/demo1:${project.version}</name>
-		              <alias>demo1</alias>
-		              <build>
-		                <from>openjdk:latest</from>
-		                <assembly>
-		                  <descriptorRef>artifact</descriptorRef>
-		                </assembly>
-		                <cmd>java -jar maven/${project.name}-${project.version}.jar</cmd>
-		              </build>
-		            </image>
-		          </images>
-		        </configuration>
-		        <executions>
-		          <execution>
-		            <id>docker:start</id>
-		            <phase>install</phase>
-		            <goals>
-		              <goal>run</goal>
-		            </goals>
-		          </execution>
-		        </executions>
-		      </plugin>
 		    </plugins>
 		  </build>
         </profile>
+        <profile>
+            <id>docker</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>0.20.1</version>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <name>sightfulmw.demo</name>
+                                    <build>
+                                        <from>openjdk:latest</from>
+                                        <assembly>
+                                            <descriptorRef>artifact</descriptorRef>
+                                        </assembly>
+                                        <cmd>java -jar maven/${sightfulmw.demo}-${project.version}.jar</cmd>
+                                    </build>
+                                </image>
+                            </images>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>docker:build</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>docker:start</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                    <goal>logs</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>        
      </profiles>
 </project>
