@@ -185,13 +185,6 @@
                            </plugin>
                        </reportPlugins>
                    </configuration>
-                   <dependencies>
-                       <dependency>
-                           <groupId>com.edurekademo.tutorial</groupId>
-                           <artifactId>addressbook</artifactId>
-                           <version>${project.version}</version>
-                       </dependency>
-                   </dependencies>
                    
                </plugin>
                
