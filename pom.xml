@@ -129,9 +129,6 @@
                                <groupId>org.apache.maven.plugins</groupId>
                                <artifactId>maven-checkstyle-plugin</artifactId>
                                <version>3.0.1</version>
-                               <!--<configuration>-->
-                               <!--<configLocation>gol-checkstyle.xml</configLocation>-->
-                               <!--</configuration>-->
                            </plugin>
                            <plugin>
                                <groupId>org.apache.maven.plugins</groupId>
@@ -208,7 +205,7 @@
                                         <assembly>
                                             <descriptorRef>artifact</descriptorRef>
                                         </assembly>
-                                        <cmd>java -jar maven/${sightfulmw.demo}-${project.version}.jar</cmd>
+                                        <cmd>java -jar maven/${project.name}-${project.version}.jar</cmd>
                                     </build>
                                 </image>
                             </images>
