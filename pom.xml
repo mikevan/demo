@@ -208,11 +208,6 @@
 		                </assembly>
 		                <cmd>java -jar maven/${project.name}-${project.version}.jar</cmd>
 		              </build>
-		              <run>
-		                <wait>
-		                  <log>Demo 1 successful in Docker</log>
-		                </wait>
-		              </run>
 		            </image>
 		          </images>
 		        </configuration>
